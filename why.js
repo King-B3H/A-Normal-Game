@@ -22,6 +22,14 @@ function saveGame(){
     localStorage.setItem("gameSave", JSON.stringify(gameSave))
 }
 
+function resetGame(){
+    if (confirm("Are you positive you wish to reset?")){
+        var gameSave = {};
+        localStorage.setItem("gameSave", JSON.stringify(gameSave))
+        location.reload()
+    }
+}
+
 function loadGame(){
     var savedGame = JSON.parse(localStorage.getItem("gameSave")) 
     if(typeof savedGame.human !== "undefined") human = savedGame.human;
@@ -84,7 +92,7 @@ setInterval(function(){
   }, 1)
 
 window.onload = function(){
-    loadGame()
+loadGame()
   displayUpdate()
 }
 
