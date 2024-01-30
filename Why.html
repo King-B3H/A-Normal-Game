@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+    <title>Ur bald</title>
+    <link rel="stylesheet" href="why.css"/>
+    <body>
+        <h1>This is a normal game do not worry</h1>
+        <h2>Created by: King_B3H</h2>
+        <br>
+        <br>
+        <br>
+        <div class="right">
+            <h2>BONUSES</h2>
+            
+            <b>Hoomans</b><ul>
+                <li>House Multi: <span id="house_multi"></span>x Hoomans
+                <li>Town Multi: <span id="town_h_multi"></span>x Hoomans
+                <li>City Multi: <span id="city_h_multi"></span>x Hoomans</ul>
+                    <b>Houses</b><ul>
+                <li>City Multi: <span id="city_H_multi"></span>x Houses
+        </div>
+
+        <div class="left">
+            <div class="generate">
+                <div id="human_generate" onclick="create()">Click For Hooman<br>
+                <span id="human"> </span> Hoomans</div>
+                <div id="generation_divide"></div>
+                <div id="house_generate" onclick="condense(house)">Condense 10 Hoomans for a House, where they go is a mystery...<br>
+                <span id="house"> </span> Houses</div>
+                <div id="generation_divide"></div>
+                <div id="town_generate" onclick="condense(town)">Condense 10 Houses for a Town, where they go is a mystery...<br>
+                <span id="town"> </span> Towns</div>
+                <div id="generation_divide"></div>
+                <div id="city_generate" onclick="condense(city)">Condense 5 Towns for a City, where they go is a mystery...<br>
+                <span id="city"> </span> Cities</div>
+
+            </div>
+        </div>
+    </body>
+    
+</html>
+<script src="why.js">
+    </script>

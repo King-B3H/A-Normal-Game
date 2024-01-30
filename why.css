@@ -1,0 +1,40 @@
+body{
+    user-select:none;
+    font-family:'papyrus';
+    background-color:aquamarine;
+}
+.left{
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+.generate{
+    border:5px solid grey;
+    margin-top:5px;
+    margin-right:5px;
+    text-align:center;
+    font-weight:600;
+    width:250px;
+    color:black;
+    font-size:20px;
+    font-family:'papyrus';
+}
+#generation_divide{
+    height:10px;
+}
+#human_generate{
+    text-align:center;
+    background-color:blue;
+}
+#house_generate{
+    text-align:center;
+    background-color:orange;
+}
+#town_generate{
+    text-align:center;
+    background-color:red;
+}
+#city_generate{
+    text-align:center;
+    background-color:purple;
+}
