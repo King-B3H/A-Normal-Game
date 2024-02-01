@@ -1,44 +1,107 @@
 <!DOCTYPE HTML>
 <html>
-    <title>Ur bald</title>
+    <title>A Normal Game</title>
     <link rel="stylesheet" href="why.css"/>
+    <link rel="icon" href="favicon.ico">
     <body>
+        <div id="right">
         <h1>This is a normal game do not worry</h1>
         <h2>Created by: King_B3H</h2>
-        <h3>Note: The game <b>DOES NOT</b> save.</h3>
-        <h3>There is no endgame. Go as far as you can and let me know how far you get!</h3>
+        <h3 style="color:green;">Current endgame: 100 Planets.</h3>
+        <p style="font-weight:bold;">You have been playing for: <p>
+        <span id="dayDisplay"></span>
+        <span id="hourDisplay"></span>
+        <span id="minuteDisplay"></span>
+        <span id="secondDisplay"></span>
         <br>
         <br>
+        <div id="usernameBar" onclick="getUserName()"><span id="userName"></span>'s Conquest</div>
         <br>
-        <div class="right">
+        <br>
+        <div id="bonuses">
             <h2>BONUSES</h2>
-            
+            <b>These multipliers are from the given building. The multiplier<br> displayed multiplies all currencies below it. The closer a <br>building is in value to another, the smaller the multi.</b><ul>
+                <li>House Multi: <span id="house_multi"></span>x Hoomans
+                <li>Town Multi: <span id="town_h_multi"></span>x Hoomans
+                <li>City Multi: <span id="city_h_multi"></span>x Hoomans
+                <li>State Multi: <span id="state_h_multi"></span>x Hoomans
+                <li>Country Multi: <span id="country_h_multi"></span>x Hoomans
+                <li>Continent Multi: <span id="continent_h_multi"></span>x Hoomans
+                <li>Planet Multi: <span id="planet_h_multi"></span>x Hoomans<br>
+                <li><b>Total Multi: <span id="totalMulti"></span>x</b></ul>
+        </div>
+            <!--
             <b>Hoomans</b><ul>
                 <li>House Multi: <span id="house_multi"></span>x Hoomans
                 <li>Town Multi: <span id="town_h_multi"></span>x Hoomans
-                <li>City Multi: <span id="city_h_multi"></span>x Hoomans</ul>
-                    <b>Houses</b><ul>
+                <li>City Multi: <span id="city_h_multi"></span>x Hoomans
+                <li>State Multi: <span id="state_h_multi"></span>x Hoomans
+                <li>Country Multi: <span id="country_h_multi"></span>x Hoomans
+                <li>Continent Multi: <span id="continent_h_multi"></span>x Hoomans
+                <li>Planet Multi: <span id="planet_h_multi"></span>x Hoomans</ul>
+
+            <b>Houses</b><ul>
                 <li>City Multi: <span id="city_H_multi"></span>x Houses
+                <li>Town Multi: <span id="town_H_multi"></span>x Houses
+                <li>State Multi: <span id="state_H_multi"></span>x Houses
+                <li>Country Multi: <span id="state_H_multi"></span>x Houses
+                <li>Continent Multi: <span id="state_H_multi"></span>x Houses
+                <li>Planet Multi: <span id="state_H_multi"></span>x Houses</ul>
+
+            <b>Towns</b><ul>
+                <li>City Multi: <span id="city_H_multi"></span>x Houses
+                <li>State Multi: <span id="state_H_multi"></span>x Houses
+                <li>Country Multi: <span id="state_H_multi"></span>x Houses
+                <li>Continent Multi: <span id="state_H_multi"></span>x Houses
+                <li>Planet Multi: <span id="state_H_multi"></span>x Houses</ul>
+            -->
+                    <div id="gameProgressButtons">
+                        <div><button onclick="saveGame()" id="saveButton">Save Game</button></div><br>
+                        <div><button onclick="resetGame()" id="resetButton">Reset Progress</button></div><br>
+                        <button id="changeLog"><a href="./changelog.html" target="_blank" id="changeLogText">Changelog</a></button>
+                        <button id="test" onclick="hide()">Click to hide me if you're mean >:C !</button>
+                    </div>
         </div>
 
-        <div class="left">
+        <div id="left">
             <div class="generate">
                 <div id="human_generate" onclick="create()">Click For Hooman<br>
                 <span id="human"> </span> Hoomans</div>
                 <div id="generation_divide"></div>
-                <div id="house_generate" onclick="condense(house)">Condense 10 Hoomans for a House, where they go is a mystery...<br>
+                <div id="house_generate" onclick="condense('house')">Condense 20 Hoomans for a House, where they go is a mystery...<br>
                 <span id="house"> </span> Houses</div>
                 <div id="generation_divide"></div>
-                <div id="town_generate" onclick="condense(town)">Condense 10 Houses for a Town, where they go is a mystery...<br>
+              
+                <div id="town_generate" onclick="condense('town')">Condense 35 Houses for a Town, where they go is a mystery...<br>
                 <span id="town"> </span> Towns</div>
                 <div id="generation_divide"></div>
-                <div id="city_generate" onclick="condense(city)">Condense 5 Towns for a City, where they go is a mystery...<br>
+              
+                <div id="city_generate" onclick="condense('city')">Condense 50 Towns for a City, where they go is a mystery...<br>
                 <span id="city"> </span> Cities</div>
+                <div id="generation_divide"></div>
+              
+                <div id="state_generate" onclick="condense('state')">Condense 60 Cities for a State. Now we're rolling.<br>
+                <span id="state"> </span> States</div>
+                <div id="generation_divide"></div>
+              
+                <div id="country_generate" onclick="condense('country')">Condense 75 States for a Country. Something's off now...<br>
+                <span id="country"> </span> Countries</div>
+                <div id="generation_divide"></div>
+              
+                <div id="continent_generate" onclick="condense('continent')">Condense 85 Countries for a Continent. This game is very innacuate...<br>
+                <span id="continent"> </span> Continents</div>
+                <div id="generation_divide"></div>
+              
+                <div id="planet_generate" onclick="condense('planet')">Condense 100 Continents for a Planet. This doesn't seem right...<br>
+                <span id="planet"> </span> Planets</div>   
 
             </div>
         </div>
-        <button onclick="resetGame()">Reset Progress</button>
-    </body>
+        <img id="troll" src="./endgame.png"/>
+        <img id="theWall" src="./currentWall.png" onclick="resetGame()"/>
+        <button onclick="resetGame()" id="endgameReset">Reset?</button>
+        <button onclick="continueGame()" id="continue">Continue</button>
+     </body>
     
 </html>
 <script src="why.js">

@@ -1,0 +1,32 @@
+body{
+    font-family:'Courier New', Courier, monospace;
+    position:absolute;
+    left:5%;
+    background-color: gray;
+}
+
+#weirdImage{
+    position:absolute;
+    left:700px;
+    top:50px;
+}
+#theImage{
+    position:fixed;
+    left:800px;
+    top:25px;
+    width:500px;
+    height:300px;
+    text-align:center;
+}
+#rainbow{
+    position:fixed;
+    left:800px;
+    bottom:25px;
+    width:500px;
+    height:300px;
+    text-align:center;
+    background-image:radial-gradient(circle, red, orange, yellow, green, blue, purple, blue, green, yellow, orange, red);
+}
+#rainbowText{
+    color:white;
+}

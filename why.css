@@ -1,40 +1,161 @@
 body{
-    user-select:none;
     font-family:'papyrus';
     background-color:aquamarine;
 }
-.left{
+#left{
+    display:auto;
     position:absolute;
     right:0px;
     top:0px;
 }
+#right{
+    display:auto;
+}
+#gameProgressButtons{
+    display:auto;
+    position:absolute;
+}
+#bonuses{
+    display:auto;
+    position:absolute;
+    top:25%;
+    left:25%;
+}
+#troll{
+    display:none;
+    width:400px;
+    height:600px;
+}
+#theWall{
+    display:none;
+    width:400px;
+    height:600px;
+}
+#endgameReset{
+    display:none;
+    width:100px;
+    height:200px;
+}
+#continue{
+    display:none;
+    width:100px;
+    height:200px;
+}
 .generate{
-    border:5px solid grey;
+    user-select:none;
+    overflow:scroll;
+    border:5px solid;
+    border-radius:10px;
     margin-top:5px;
     margin-right:5px;
     text-align:center;
     font-weight:600;
     width:250px;
+    height:500px;
+    scrollbar-color: black;
     color:black;
     font-size:20px;
     font-family:'papyrus';
+}
+#usernameBar{
+    font-family:'monospace';
+    height:50px;
+    font-size:15px;
+    width:250px;
+    text-align:center;
+    padding-top:25px;
+    background-color:rgb(0, 252, 0);
+    border:5px solid black;
+    border-radius:15px;
+
+}
+#test{
+    background-image:none;
 }
 #generation_divide{
     height:10px;
 }
 #human_generate{
+    color:white;
+    display:auto;
     text-align:center;
-    background-color:blue;
+    background-image:radial-gradient(circle, blue, red, blue);
+    
 }
 #house_generate{
+    color:white;
+    display:auto;
     text-align:center;
-    background-color:orange;
+    background-image:linear-gradient(to left, orange, rgb(147, 255, 147), orange);
 }
 #town_generate{
+    color:white;
     text-align:center;
-    background-color:red;
+    background-image:linear-gradient(to right, blue, red, rgb(70, 164, 70));
 }
 #city_generate{
-    text-align:center;
-    background-color:purple;
+    color:white;
+    text-align:center; 
+    background-image:linear-gradient(to top right, yellow, black, yellow, black);
 }
+#state_generate{
+    color:white;
+    text-align:center;
+    background-image:linear-gradient(to bottom left, purple, yellow, purple);
+}
+#country_generate{
+    color:white;
+    text-align:center;
+    background-image:linear-gradient(to bottom right, orange, red, orange);
+}
+#continent_generate{
+    color:white;
+    text-align:center;
+    background-image:linear-gradient(blue, purple, blue);
+}
+#planet_generate{
+    color:white;
+    text-align:center;
+    background-image:radial-gradient(circle, green, blue, green, blue);
+}
+
+#saveButton{
+    border:8px solid black;
+    border-radius:10px;
+    height:60px;
+    width:150px;
+    font-size:18px;
+    font-family:'monospace';
+    font-weight:700;
+    color:white;
+    background-color:green;
+}
+#resetButton{
+    border:8px solid black;
+    border-radius:10px;
+    height:60px;
+    width:150px;
+    font-size:18px;
+    font-family:'monospace';
+    font-weight:700;
+    color:white;
+    background-color:red;
+}
+#changeLog{
+    border:8px solid black;
+    border-radius:10px;
+    height:60px;
+    width:150px;
+    font-size:20px;
+    font-family:'monospace';
+    color:white;
+    font-weight:700;
+    background-color:orange;
+}
+#changeLogText{
+    color:black;
+}
+#changeLogText:link { text-decoration: none; }
+#changeLogText:visited { text-decoration: none; }
+#changeLogText:hover { text-decoration: none; }
+#changeLogText:active { text-decoration: none; }
