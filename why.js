@@ -54,7 +54,7 @@ function condense(building){
     
     if(building === "house"){
         if(human >= 20){
-        totalMulti > 1000 ? house += (Math.floor(human/20))*(Math.floor((totalMulti/house_multi)**0.7)) : house += (Math.floor(human/20))*(Math.floor((totalMulti/house_multi)))
+        totalMulti > 100 ? house += (Math.floor(human/20))*(Math.floor((totalMulti/house_multi)**0.5)) : house += (Math.floor(human/20))*(Math.floor((totalMulti/house_multi)))
         human = 0
         return building = 0;
         }
@@ -62,7 +62,7 @@ function condense(building){
 
     if(building === "town"){
         if(house >= 35){
-            totalMulti > 1000 ? town += (Math.floor(house/35))*(Math.floor((totalMulti/house_multi/town_h_multi)**0.68)) : town += (Math.floor(house/35))*(Math.floor((totalMulti/house_multi/town_h_multi)))
+            totalMulti > 100 ? town += (Math.floor(house/50))*(Math.floor((totalMulti/house_multi/town_h_multi)**0.48)) : town += (Math.floor(house/35))*(Math.floor((totalMulti/house_multi/town_h_multi)))
             house = 0
             return building = 0;
         }   
@@ -70,7 +70,7 @@ function condense(building){
     
     if(building === "city"){
         if(town >= 50){
-            totalMulti > 1000 ? city += Math.floor(town/50)*(Math.floor(((state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi))**0.65)) : city += Math.floor(town/50)*(Math.floor(((state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi))))
+            totalMulti > 100 ? city += Math.floor(town/75)*(Math.floor(((state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi))**0.45)) : city += Math.floor(town/50)*(Math.floor(((state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi))))
             town = 0
             return building = 0;
         }
@@ -78,7 +78,7 @@ function condense(building){
 
     if(building === "state"){
         if(city >= 60){
-            totalMulti > 1000 ? state += Math.floor(city/60)*(Math.floor(((country_h_multi)*(continent_h_multi)*(planet_h_multi))**0.625)) : state += Math.floor(city/60)*(Math.floor((country_h_multi)*(continent_h_multi)*(planet_h_multi)))
+            totalMulti > 100 ? state += Math.floor(city/100)*(Math.floor(((country_h_multi)*(continent_h_multi)*(planet_h_multi))**0.425)) : state += Math.floor(city/60)*(Math.floor((country_h_multi)*(continent_h_multi)*(planet_h_multi)))
             city = 0
             return building = 0;
         }
@@ -86,7 +86,7 @@ function condense(building){
     };
     if(building === "country"){
         if(state >= 75){
-            totalMulti > 1000 ? country += Math.floor(state/75)*(Math.floor(((continent_h_multi)*(planet_h_multi))**0.595)) : country += Math.floor(state/75)*(Math.floor(((continent_h_multi)*(planet_h_multi))))
+            totalMulti > 100 ? country += Math.floor(state/150)*(Math.floor(((continent_h_multi)*(planet_h_multi))**0.39)) : country += Math.floor(state/75)*(Math.floor(((continent_h_multi)*(planet_h_multi))))
              state = 0
              return building = 0;
         }
@@ -95,7 +95,7 @@ function condense(building){
 
     if(building === "continent"){
         if(country >= 85){
-            continent += Math.floor(country/85)*(Math.floor((planet_h_multi)**0.58))
+            continent += Math.floor(country/200)*(Math.floor((planet_h_multi)**0.37))
             country = 0
             return building = 0;
         }
@@ -104,7 +104,7 @@ function condense(building){
 
     if(building === "planet"){
         if(continent >= 100){
-            planet += Math.floor(continent/100)
+            planet += Math.floor(continent/300)
             continent = 0
             return building = 0;
         }
