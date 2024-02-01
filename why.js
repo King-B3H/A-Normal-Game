@@ -11,6 +11,7 @@ var universe = 0
 
 var userName = "A Random Person"
 var pastEndgame = false
+var metWall = false
 var joeClick = false
 
 var house_multi = 1
@@ -196,6 +197,7 @@ function saveGame(){
         minutes : minutes,
         hours : hours,
         days : days,
+        metWall : metWall,
         joeClick : joeClick
     };
 
@@ -204,8 +206,9 @@ function saveGame(){
 
 function resetGame(){
     if (confirm("Are you positive you wish to reset?")){
-        var gameSave = {};
+        var gameSave = {}
         localStorage.setItem("gameSave", JSON.stringify(gameSave))
+        totalMulti = 0
         location.reload()
     }
 }
@@ -233,7 +236,8 @@ function loadGame(){
         if(typeof savedGame.minutes !== "undefined") minutes = savedGame.minutes;
         if(typeof savedGame.hours !== "undefined") hours = savedGame.hours;
         if(typeof savedGame.days !== "undefined") days = savedGame.days;
-        if(typeof savedGame.joeClick !== "undefined") joeClick = savedGame.joeClick;
+        if(typeof savedGame.metWall !== "undefined") metWall = savedGame.metWall;
+        if(typeof savedGame.joeClick !== "undefined") joeClick = savedGame.joeClick
     }
 }
 
@@ -284,7 +288,7 @@ function timeTick(){
 
 
 function checkEndgame(){
-    if(planet >= 100 && pastEndgame === false){
+    if(planet > 99 && pastEndgame === false){
         document.getElementById("left").style.display = "none"
         document.getElementById("right").style.display = "none"
         document.getElementById("troll").style.display = "block"
@@ -292,19 +296,22 @@ function checkEndgame(){
         document.getElementById("endgameReset").style.display = "block"
     }
     
-    if(planet >= 100 && pastEndgame === true){
+    if(planet > 99 && pastEndgame === true){
         document.getElementById("left").style.display = ""
         document.getElementById("right").style.display = ""
         document.getElementById("troll").style.display = "none"
         document.getElementById("continue").style.display = "none"
         document.getElementById("endgameReset").style.display = "none"
     }    
-    if(human >= 1e200){
+    if(totalMulti >= 1e21){
+        pastEndgame === true
+        metWall = true
         saveGame()
         document.getElementById("left").style.display = "none"
         document.getElementById("right").style.display = "none"
         document.getElementById("theWall").style.display = "block"
     }
+
 }
 
 function displayUpdate(){
