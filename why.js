@@ -29,8 +29,20 @@ var hours = 0
 var minutes = 0
 var seconds = 0
 
+var timeoutActive = 0
+var upgrade1 = 0
+
+function hoomanClick(){
+    if (timeoutActive === 0){
+    var timeout = setTimeout(create, 100)
+    timeoutActive = 1
+    }else{
+        clearTimeout(timeout)
+    }
+}
 function create(){
     human += 1*(house_multi)*(town_h_multi)*(city_h_multi)*(state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi)
+    timeoutActive = 0
 }
 
 function hide(){
@@ -49,7 +61,6 @@ building
 } */
 
 
-
 function condense(building){
     
     if(building === "house"){
@@ -61,32 +72,32 @@ function condense(building){
     };
 
     if(building === "town"){
-        if(house >= 35){
-            totalMulti > 100 ? town += (Math.floor(house/50))*(Math.floor((totalMulti/house_multi/town_h_multi)**0.48)) : town += (Math.floor(house/35))*(Math.floor((totalMulti/house_multi/town_h_multi)))
+        if(house >= 50){
+            totalMulti > 100 ? town += (Math.floor(house/50))*(Math.floor((totalMulti/house_multi/town_h_multi)**0.48)) : town += (Math.floor(house/50))*(Math.floor((totalMulti/house_multi/town_h_multi)))
             house = 0
             return building = 0;
         }   
     };
     
     if(building === "city"){
-        if(town >= 50){
-            totalMulti > 100 ? city += Math.floor(town/75)*(Math.floor(((state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi))**0.45)) : city += Math.floor(town/50)*(Math.floor(((state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi))))
+        if(town >= 150){
+            totalMulti > 100 ? city += Math.floor(town/150)*(Math.floor(((state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi))**0.45)) : city += Math.floor(town/150)*(Math.floor(((state_h_multi)*(country_h_multi)*(continent_h_multi)*(planet_h_multi))))
             town = 0
             return building = 0;
         }
     };
 
     if(building === "state"){
-        if(city >= 60){
-            totalMulti > 100 ? state += Math.floor(city/100)*(Math.floor(((country_h_multi)*(continent_h_multi)*(planet_h_multi))**0.425)) : state += Math.floor(city/60)*(Math.floor((country_h_multi)*(continent_h_multi)*(planet_h_multi)))
+        if(city >= 350){
+            totalMulti > 100 ? state += Math.floor(city/350)*(Math.floor(((country_h_multi)*(continent_h_multi)*(planet_h_multi))**0.425)) : state += Math.floor(city/350)*(Math.floor((country_h_multi)*(continent_h_multi)*(planet_h_multi)))
             city = 0
             return building = 0;
         }
         
     };
     if(building === "country"){
-        if(state >= 75){
-            totalMulti > 100 ? country += Math.floor(state/150)*(Math.floor(((continent_h_multi)*(planet_h_multi))**0.39)) : country += Math.floor(state/75)*(Math.floor(((continent_h_multi)*(planet_h_multi))))
+        if(state >= 600){
+            totalMulti > 100 ? country += Math.floor(state/600)*(Math.floor(((continent_h_multi)*(planet_h_multi))**0.39)) : country += Math.floor(state/600)*(Math.floor(((continent_h_multi)*(planet_h_multi))))
              state = 0
              return building = 0;
         }
@@ -94,8 +105,8 @@ function condense(building){
     };
 
     if(building === "continent"){
-        if(country >= 85){
-            continent += Math.floor(country/200)*(Math.floor((planet_h_multi)**0.37))
+        if(country >= 900){
+            continent += Math.floor(country/900)*(Math.floor((planet_h_multi)**0.37))
             country = 0
             return building = 0;
         }
@@ -103,8 +114,8 @@ function condense(building){
     };
 
     if(building === "planet"){
-        if(continent >= 100){
-            planet += Math.floor(continent/300)
+        if(continent >= 1250){
+            planet += Math.floor(continent/1250)
             continent = 0
             return building = 0;
         }
@@ -126,43 +137,43 @@ function condense(building){
 
 function multiUpdate(){
     if(house > 0){
-        house_multi = Math.floor(Math.log(10+house)**1.5)
+        house_multi = Math.floor(Math.log(10+house)**0.99)
     }else{
         house_multi = 1
     }
 
     if(town > 0){
-        town_h_multi = Math.floor(Math.log(10+(town))**2)
+        town_h_multi = Math.floor(Math.log(10+(town))**1.4)
     }else{
         town_h_multi = 1
     }
 
     if(city > 0){
-        city_h_multi = Math.floor(Math.log(10+city)**2.35)
+        city_h_multi = Math.floor((Math.log(10+city))**1.7)
     }else{
         city_h_multi = 1
     }
 
     if(state > 0){
-        state_h_multi = Math.floor(Math.log(10+state)**2.65)
+        state_h_multi = Math.floor(Math.log(10+state)**2.05)
     }else{
         state_h_multi = 1
     }
 
     if(country > 0){
-        country_h_multi = Math.floor(Math.log(10+country)**2.8)
+        country_h_multi = Math.floor(Math.log(10+country)**2.4)
     }else{
         country_h_multi = 1
     }
         
     if(continent > 0){
-        continent_h_multi = Math.floor(Math.log(1+continent)**3.05)
+        continent_h_multi = Math.floor(Math.log(10+continent)**2.75)
     }else{
         continent_h_multi = 1
     }
 
     if(planet > 0){
-        planet_h_multi = Math.floor(Math.log((1+planet)**3.3))
+        planet_h_multi = Math.floor(Math.log(10+planet)**3.1)
     }else{
         planet_h_multi = 1
     }
@@ -174,9 +185,33 @@ function calculateTotalMulti(){
 
 function getUserName(){
     userName = (prompt("What will be your username?"))
+    var hutchersonNames = [
+        "Josh",
+        "josh",
+        "Josh Hutcherson",
+        "josh hutcherson",
+        "hutcherson",
+        "Hutcherson",
+        "JOSH",
+        "HUTCHERSON"
+    ]
     if(userName.length > 15){
         alert("Username too long.")
         userName = prompt("What will be your username? DO IT RIGHT THIS TIME!!!!")
+    }
+    if(userName === "King_B3H"){
+        alert("That's not your name...")
+        window.open(src="Goofy_Images/clown_amogus.png")
+        userName = "A random Person"
+    }
+    if(userName === "" || userName === " "){
+        alert("That's not a name...")
+        window.open(src="Goofy_Images/chip.png")
+        userName = "A random Person"
+    }
+    if(hutchersonNames.some(str => str.includes(userName))){
+        alert("*Insert Whistle")
+        window.open(src="Goofy_Images/hutcherson.jpeg")
     }
     return stringify(userName)
 }
@@ -207,9 +242,11 @@ function saveGame(){
 function resetGame(){
     if (confirm("Are you positive you wish to reset?")){
         var gameSave = {}
-        localStorage.setItem("gameSave", JSON.stringify(gameSave))
         totalMulti = 0
-        location.reload()
+        saveGame()
+        localStorage.setItem("gameSave", JSON.stringify(gameSave))
+        window.stop()
+        return location.reload()
     }
 }
 
