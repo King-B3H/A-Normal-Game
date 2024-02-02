@@ -211,7 +211,7 @@ function getUserName(){
     }
     if(hutchersonNames.some(str => str.includes(userName))){
         alert("*Insert Whistle")
-        window.open(src="Goofy_Images/hutcherson.jpeg")
+        window.open(src="Goofy Images/hutcherson.jpeg")
     }
     return stringify(userName)
 }
