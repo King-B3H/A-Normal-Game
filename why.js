@@ -201,12 +201,12 @@ function getUserName(){
     }
     if(userName === "King_B3H"){
         alert("That's not your name...")
-        window.open(src="https://github.com/King-B3H/A-Normal-Game/blob/adba32f7c83ed0d77d69da2c5503554592b153e8/Goofy%20Images/clown_amogus.png")
+        window.open(src="Goofy Images/clown_amogus.png")
         userName = "A random Person"
     }
     if(userName === "" || userName === " "){
         alert("That's not a name...")
-        window.open(src="Goofy_Images/chip.png")
+        window.open(src="Goofy Images/chip.png")
         userName = "A random Person"
     }
     if(hutchersonNames.some(str => str.includes(userName))){
