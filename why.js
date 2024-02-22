@@ -31,6 +31,7 @@ var seconds = 0
 
 var timeoutActive = 0
 var upgrade1 = 0
+var possibleReset = false
 
 function hoomanClick(){
     if (timeoutActive === 0){
@@ -242,6 +243,7 @@ function saveGame(){
 function resetGame(){
     if (confirm("Are you positive you wish to reset?")){
         var gameSave = {}
+        possibleReset = true
         totalMulti = 0
         saveGame()
         localStorage.setItem("gameSave", JSON.stringify(gameSave))
@@ -279,7 +281,9 @@ function loadGame(){
 }
 
 setInterval(function(){
-    saveGame()
+    if(possibleReset == false){
+        saveGame()
+    }
 }, 3000)
 
 setInterval(function(){
