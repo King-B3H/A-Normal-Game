@@ -242,12 +242,11 @@ function saveGame(){
 
 function resetGame(){
     if (confirm("Are you positive you wish to reset?")){
-        var gameSave = {}
         possibleReset = true
         totalMulti = 0
-        saveGame()
-        localStorage.setItem("gameSave", JSON.stringify(gameSave))
-        window.stop()
+        var gameSave = 0
+        localStorage.setItem("gameSave", JSON.stringify(gameSave));
+
         return location.reload()
     }
 }
